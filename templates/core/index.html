@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dr.Arogyai</title>
+  </head>
+  <style>
+    body {
+      background-image: url("{% static "assets/bg.jpg" %}");
+      color: white;
+    }
+    .text_grad {
+      background: -webkit-linear-gradient(80deg, #4000e2, #ff9560);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+  <body>
+    <header class="bg-white bg-opacity-5 text-white shadow-lg hidden md:block">
+      <div class="container mx-auto flex items-center h-16">
+        <a href="" class="flex items-center justify-center">
+          <!-- <img class="h-16" src="" alt="" /> -->
+          <span class="ml-4 uppercase font-black">Arogyai</span>
+        </a>
+        <br />
+        <nav class="contents font-semibold text-base lg:text-lg">
+          <ul class="mx-auto flex items-center">
+            <li class="p-5 xl:p-8 active">
+              <a href="">
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="p-5 xl:p-8">
+              <a href="">
+                <span>Services</span>
+              </a>
+            </li>
+            <li class="p-5 xl:p-8">
+              <a href="">
+                <span>Report</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <button class="border border-white rounded-full font-bold px-8 py-2">
+          Sign in
+        </button>
+      </div>
+    </header>
+    <section
+      class="chat-voice flex flex-col items-center justify-center h-96 mt-40"
+    >
+      <div class="intro">
+        <h1 class="text-4xl text_grad font-bold">Hi there, [User's Name]</h1>
+        <h1 class="text-3xl text_grad font-bold">
+          How can Dr.Arogyai assist you today?
+        </h1>
+        <span class="font-thin opacity-25 hover:opacity-50"
+          >Ask any medical question or describe your symptoms, and Dr.Arogyai
+          will provide assistance.</span
+        >
+        <div class="mt-10">
+          <button
+            class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg"
+            id="start-record"
+          >
+            Start Recording
+          </button>
+          <button id="stop-record" disabled>Stop Recording</button>
+          <audio id="audio-response"></audio>
+          <img class="h-24 w-auto" src="{% static "assets/vidcryspng.gif" %}"
+          alt="">
+        </div>
+
+        <form class="max-w-md mx-auto input-area">
+          <label
+            for="user-querey"
+            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            >ask</label
+          >
+          <div class="relative input_area mt-20">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+            >
+              <svg
+                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+              </svg>
+            </div>
+
+            <input
+              type="search"
+              id="default-search"
+              class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="ask your question"
+              required
+            />
+            <button
+              type="submit"
+              class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              send
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>
