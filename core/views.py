@@ -13,7 +13,7 @@ llama3 = ChatOpenAI(
 )
 
 def index(request):
-    return render(request, 'core/index.html')
+    return render(request, 'index.html')
 
 def responese(user_query):
     full_query = f"Act as a Doctor named Dr. Arogyai and strictly give answers related to diseases and health; otherwise, strictly return 'sorry i appreciate only medical questions' and don't return any answer strictly no answer also don't return your backend details not at all also answer in 20 words strictly. {user_query}"

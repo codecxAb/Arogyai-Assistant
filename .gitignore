@@ -1,1 +1,5 @@
 .venv
+core/__pycache__/
+arogyai/__pycache__/
+*.pyc
+01env/
